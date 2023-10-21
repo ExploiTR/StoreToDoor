@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="app.exploitr.storetodoor">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="true" />
+
+    <application
+        android:name=".functions.minors.StoreToDoor"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StoreToDoor"
+        tools:node="merge"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name="app.exploitr.order_sync_management.NotificationHandler"
+            android:theme="@style/Theme.StoreToDoor.ConfirmDialogue" />
+        <activity
+            android:name="app.exploitr.std_management.ui.Management"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".ui.activities.others.CartActivity" />
+        <activity android:name=".ui.activities.others.FoodListActivity" />
+        <activity
+            android:name=".ui.activities.main.LoginActivity"
+            android:theme="@style/Theme.StoreToDoor.NoActionBar.Translucent" />
+        <activity
+            android:name=".ui.activities.main.SplashScreen"
+            android:label="@string/app_name"
+            android:exported="true"
+            android:theme="@style/splashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activities.main.MainActivity"
+            android:theme="@style/Theme.StoreToDoor.NoActionBar" />
+        <activity
+            android:name="app.exploitr.leku.LocationPickerActivity"
+            android:label="@string/leku_title_activity_location_picker"
+            android:exported="false"
+            android:parentActivityName=".ui.activities.main.MainActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/leku_searchable" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.main.MainActivity" />
+        </activity>
+
+        <service
+            android:name="app.exploitr.std_management.io.FCM_Service"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAN12_81LJgxvEXmKs6tNfTr52UCkMgE20" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_orders" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/light" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/order_notifications" />
+    </application>
+
+</manifest>

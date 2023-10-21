@@ -1,0 +1,153 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="56dp"
+    tools:context="app.exploitr.std_management.ui.fragments.Orders">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="app.exploitr.std_management.ui.fragments.Orders">
+
+        <TextView
+            android:id="@+id/collapse_main_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/black_round"
+            android:drawablePadding="24dp"
+            android:fontFamily="@font/sumac_timber"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:letterSpacing=".155"
+            android:text="@string/currently_active_orders"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:drawableEndCompat="@drawable/ic_collapse" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/order_list_admin"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/collapse_main_list">
+
+            <requestFocus />
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/black_round"
+            android:fontFamily="@font/sumac_timber"
+            android:importantForAutofill="no"
+            android:letterSpacing=".155"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/search_by_user"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/order_list_admin" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/order_search_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:iconifiedByDefault="false"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+            android:id="@+id/choices_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            app:tbgChildSpacingForLastRow="auto"
+            app:tbgFlow="false"
+            app:tbgCheckedButton="@+id/choice_phone"
+            app:layout_constraintTop_toBottomOf="@+id/order_search_admin"
+            app:tbgChildSpacing="auto">
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/choice_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_id"
+                app:tbgMarkerColor="@color/primary" />
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_id" />
+
+
+        </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+        <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+            android:id="@+id/choices_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/choices_mode"
+            app:tbgCheckedButton="@+id/choice_0"
+            app:tbgChildSpacing="auto"
+            app:tbgChildSpacingForLastRow="16dp"
+            app:tbgRowSpacing="4dp">
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/choice_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ordered"
+                app:tbgMarkerColor="@color/primary" />
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/choice_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accepted" />
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/choice_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rejected" />
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/choice_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/postponed" />
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/choice_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delivered" />
+
+
+        </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/order_search_list_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/choices_type" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

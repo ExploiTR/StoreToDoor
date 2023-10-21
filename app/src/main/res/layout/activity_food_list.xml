@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/food_list_back">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_timing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:id="@+id/timing_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bangers"
+                android:gravity="center"
+                android:letterSpacing="0.25"
+                android:padding="12dp"
+                android:text="@string/order_timing_10am_to_5pm"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mainFoods"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="2dp" />
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ProgressBar
+        android:id="@+id/progress_loading_foods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/progress_loading_foods_text"
+        android:indeterminateTint="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/progress_loading_foods_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_asi"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:text="@string/loading_your_favourites"
+        android:textColor="@color/black"
+        android:textSize="22sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_asi"
+        android:gravity="center"
+        android:id="@+id/out_of_stock_text"
+        android:visibility="invisible"
+        android:text="@string/this_category_is_out_of_stock"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:layout_above="@+id/progress_loading_foods_text" />
+
+</RelativeLayout>

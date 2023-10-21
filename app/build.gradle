@@ -1,0 +1,131 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'realm-android'https://github.com/ExploiTR/StoreToDoor
+}
+
+android {
+    signingConfigs {
+        debug {
+
+        }
+    }
+
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "app.exploitr.storetodoor"
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 10008
+        versionName "1.0.0.0.8 - cuu"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.debug
+        }
+        debug {
+         //   minifyEnabled true
+         //   shrinkResources true
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+configurations.all {
+    // this is a workaround for the issue:
+    // https://stackoverflow.com/questions/52521302/how-to-solve-program-type-already-present-com-google-common-util-concurrent-lis
+    exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    exclude group: 'com.google.guava', module: 'listenablefuture'
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation platform('com.google.firebase:firebase-bom:26.5.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-core'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics'
+
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation "androidx.browser:browser:1.4.0"
+
+    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.2'
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'com.ms-square:expandableTextView:0.1.4'
+    implementation 'com.github.himanshu-soni:QuantityView:-SNAPSHOT'
+
+    //noinspection GradleDependency
+    implementation 'com.github.florent37:DiagonalLayout:v1.0.7'
+
+    implementation 'com.nex3z:toggle-button-group:1.2.3'
+    implementation "androidx.multidex:multidex:2.0.1"
+
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:3.0.0-RC3'
+    implementation 'com.github.DroidNinja:Android-FilePicker:master-SNAPSHOT'
+
+    implementation 'ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.1'
+
+    implementation 'com.firebaseui:firebase-ui-storage:7.2.0'
+    //noinspection GradleDependency
+    implementation 'com.android.volley:volley:1.2.0'
+
+    implementation 'com.github.amulyakhare:TextDrawable:master'
+
+    //for L.E.K.U
+    implementation "com.google.android.material:material:1.4.0"
+    implementation 'androidx.activity:activity-ktx:1.4.0'
+    implementation("com.google.android.libraries.places:places:2.5.0") {
+        exclude group: "com.android.support"
+        exclude group: "com.android.volley"
+    }
+    implementation 'com.google.maps:google-maps-services:0.19.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.13'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'nl.littlerobots.rxlint:rxlint:1.7.7'
+
+    implementation 'com.github.wdullaer:MaterialDateTimePicker:v4.2.3'
+    implementation 'com.github.whilu:AndroidTagView:v1.1.7'
+
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.3'
+    implementation 'com.google.firebase:firebase-appcheck-safetynet:16.0.0-beta04'
+
+    implementation 'com.github.blainepwnz:AndroidContacts:1.14.0'
+    implementation 'com.airbnb.android:lottie:4.2.0'
+}

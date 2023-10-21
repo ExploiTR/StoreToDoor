@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/management_navigation"
+    app:startDestination="@+id/nav_foods">
+
+    <fragment
+        android:id="@+id/nav_foods"
+        android:name="app.exploitr.std_management.ui.fragments.Foods"
+        android:label="@string/foods"
+        tools:layout="@layout/manage_fragment_foods" />
+
+    <fragment
+        android:id="@+id/nav_orders_management"
+        android:name="app.exploitr.std_management.ui.fragments.Orders"
+        android:label="@string/orders"
+        tools:layout="@layout/manage_fragment_orders" />
+</navigation>

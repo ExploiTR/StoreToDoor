@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/reload"
+            android:onClick="processStuff"
+            android:text="@string/reload"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_height="wrap_content"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/order_id_text_admin_notification"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:gravity="start"
+                android:text="@string/order_0"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.ms.square.android.expandabletextview.ExpandableTextView xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/orderDesc_admin_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:lines="10"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/order_id_text_admin_notification"
+                expandableTextView:animDuration="200"
+                expandableTextView:maxCollapsedLines="5">
+
+                <TextView
+                    android:id="@id/expandable_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|bottom"
+                    android:layout_weight=".1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/expand_description"
+                    android:padding="8dp" />
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+
+            <TextView
+                android:id="@+id/total_price_admin_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@color/primary"
+                android:clickable="false"
+                android:fontFamily="@font/proxima_asi"
+                android:gravity="center"
+                android:letterSpacing=".15"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="@string/_1580"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/order_time_text_admin_notification"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="start|center"
+                android:lines="2"
+                android:paddingTop="4dp"
+                android:text="@string/ordered_on_16th_jan_2021_18_35_21"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@id/total_price_admin_notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/orderDesc_admin_notification" />
+
+            <TextView
+                android:id="@+id/delivery_time_text_admin_notification"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="start|center"
+                android:lines="2"
+                android:paddingTop="4dp"
+                android:text="@string/delivery_on_16th_jan_2021_18_35_21"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@id/total_price_admin_notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/order_time_text_admin_notification" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/order_confirm_admin_notification"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="100dp"
+                android:text="@string/confirm"
+                android:textSize="12sp"
+                app:icon="@drawable/ic_status_accepted"
+                app:layout_constraintEnd_toStartOf="@id/total_price_admin_notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone_address_text_admin_notification" />
+
+            <TextView
+                android:id="@+id/order_address_text_admin_notification"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="start|center"
+                android:lines="5"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="@string/address_132_anytime_lane_kol_711401"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toStartOf="@id/total_price_admin_notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/delivery_time_text_admin_notification" />
+
+            <TextView
+                android:id="@+id/payment_mode_text_admin_notification"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="start|center"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="@string/g_pay"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/total_price_admin_notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/order_address_text_admin_notification" />
+
+            <TextView
+                android:id="@+id/phone_address_text_admin_notification"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="start|center"
+                android:lines="2"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="@string/_911234567890"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/total_price_admin_notification"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/payment_mode_text_admin_notification" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</com.google.android.material.card.MaterialCardView>

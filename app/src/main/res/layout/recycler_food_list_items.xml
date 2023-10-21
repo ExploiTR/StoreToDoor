@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardCornerRadius="2.5dp"
+    app:cardElevation="1.5dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/special_symbol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:background="@color/primary"
+            android:fontFamily="@font/proxima_asi"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/special_item"
+            android:textColor="@color/buttons"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/foodName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/proxima_asi"
+            android:gravity="start"
+            android:text="@string/alu_biryani"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/special_symbol" />
+
+        <TextView
+            android:id="@+id/foodDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/proxima_asi"
+            android:paddingBottom="2dp"
+            android:text="@string/sample_desc"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/food_image"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodName" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/food_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            app:layout_constraintBottom_toTopOf="@id/add_item"
+            app:layout_constraintEnd_toEndOf="@+id/add_item"
+            app:layout_constraintStart_toStartOf="@+id/add_item"
+            app:layout_constraintTop_toBottomOf="@id/foodDesc"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            app:srcCompat="@drawable/biryani" />
+
+        <Button
+            android:id="@+id/add_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/add"
+            app:layout_constraintBottom_toTopOf="@id/quantity"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <me.himanshusoni.quantityview.QuantityView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/add_item"
+            app:layout_constraintStart_toStartOf="@+id/add_item"
+            app:qv_addButtonTextColor="@color/teal_700"
+            app:qv_maxQuantity="1000"
+            app:qv_quantity="1"
+            app:qv_removeButtonTextColor="@android:color/holo_red_light" />
+
+        <RadioGroup
+            android:id="@+id/storeList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="2dp"
+            android:divider="?android:attr/dividerHorizontal"
+            android:gravity="start|center"
+            android:showDividers="middle"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/quantity"
+            app:layout_constraintStart_toStartOf="@+id/foodDesc"
+            app:layout_constraintTop_toBottomOf="@+id/foodDesc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,3 @@
+rootProject.name = "StoreToDoor"
+include ':app'
+#
